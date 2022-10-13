@@ -3,7 +3,10 @@ import 'dart:ui';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:testapp/custom/navDrawer.dart';
 import 'package:testapp/responsive/dimensions.dart';
+
+import '../../custom/customAppBar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -32,256 +35,183 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        body: MyScaffold(
-          color1: Color.fromARGB(236, 255, 253, 208),
-          color2: Color.fromARGB(83, 245, 148, 188),
-          container: Stack(
-            children: [
-              Positioned(
-                left: Dimensions.p120,
-                right: Dimensions.p30,
-                top: Dimensions.p70,
-                child: Container(
-                    alignment: Alignment.center,
-                    height: Dimensions.p140,
-                    clipBehavior: Clip.antiAlias,
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      borderRadius: BorderRadius.circular(Dimensions.p30),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.all(Dimensions.p10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                              alignment: Alignment.center,
-                              height: Dimensions.p120,
-                              width: Dimensions.p70,
-                              clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 255, 243, 228),
-                                borderRadius: BorderRadius.circular(40),
-                              ),
-                              child: Text(
-                                "10",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w800,
-                                  color: Color.fromARGB(255, 0, 0, 0),
-                                ),
-                              )),
-                          Container(
-                              alignment: Alignment.center,
-                              height: Dimensions.p120,
-                              width: Dimensions.p70,
-                              clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 255, 243, 228),
-                                borderRadius: BorderRadius.circular(40),
-                              ),
-                              child: Text(
-                                "11",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w800,
-                                  color: Color.fromARGB(255, 15, 15, 15),
-                                ),
-                              )),
-                          Container(
-                              alignment: Alignment.center,
-                              height: Dimensions.p120,
-                              width: Dimensions.p70,
-                              clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 64, 2, 77),
-                                borderRadius: BorderRadius.circular(40),
-                              ),
-                              child: Text(
-                                "12",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w800,
-                                  color: Color.fromARGB(255, 255, 255, 255),
-                                ),
-                              )),
-                        ],
-                      ),
-                    )),
-              ),
-              Container(
-                child: Column(children: [
-                  //topbar
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    padding: EdgeInsets.all(Dimensions.p10),
-                    margin: EdgeInsets.only(top: Dimensions.p10),
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.all(Dimensions.p8),
-                            child: CircleAvatar(
-                                backgroundImage:
-                                    AssetImage('assets/adnandp.jpeg'),
-                                maxRadius: Dimensions.p20),
+      child: Stack(
+        children: [
+          Positioned(
+            left: Dimensions.p120,
+            right: Dimensions.p10,
+            child: Container(
+                alignment: Alignment.center,
+                height: Dimensions.p140,
+                clipBehavior: Clip.antiAlias,
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(Dimensions.p30),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(Dimensions.p10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                          alignment: Alignment.center,
+                          height: Dimensions.p120,
+                          width: Dimensions.p70,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 255, 243, 228),
+                            borderRadius: BorderRadius.circular(Dimensions.p40),
                           ),
-                          Padding(
-                            padding: EdgeInsets.all(Dimensions.p10),
-                            child: Badge(
-                              padding: EdgeInsets.symmetric(
-                                  vertical: Dimensions.p10,
-                                  horizontal: Dimensions.p10),
-                              badgeContent: Text(
-                                "5",
-                                style: TextStyle(
-                                    fontSize: 12,
-                                    color: Color.fromARGB(255, 255, 255, 255)),
-                              ),
-                              badgeColor: Color.fromARGB(255, 192, 8, 8),
-                              child: IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.notifications_active,
-                                    size: Dimensions.p35,
-                                    color: Color.fromARGB(255, 40, 9, 122),
-                                  )),
-                            ),
-                          ),
-                        ]),
-                  ),
-                  //body
-
-                  Container(
-                    margin: EdgeInsets.all(Dimensions.p20),
-                    alignment: Alignment.centerLeft,
-                    child: Container(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            "Adnan Ullah",
+                          child: Text(
+                            "10",
                             style: TextStyle(
                               fontWeight: FontWeight.w800,
-                              fontSize: Dimensions.p15,
-                              color: Color.fromARGB(255, 29, 3, 37),
+                              color: Color.fromARGB(255, 0, 0, 0),
                             ),
-                          ),
-                          SizedBox(
-                            height: Dimensions.p10,
-                          ),
-                          Text(
-                            "Cross-app developer",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: Dimensions.p10,
-                              color: Color.fromARGB(255, 42, 41, 43),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: Dimensions.p20),
-
-                  Container(
-                    padding: EdgeInsets.all(Dimensions.p20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
+                          )),
+                      Container(
+                          alignment: Alignment.center,
+                          height: Dimensions.p120,
+                          width: Dimensions.p70,
+                          clipBehavior: Clip.antiAlias,
                           decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 255, 244, 211),
-                              borderRadius: BorderRadius.circular(40)),
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  height: Dimensions.p75,
-                                  padding:
-                                      EdgeInsets.only(left: Dimensions.p12),
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        "9:00 AM",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w800,
-                                            fontSize: Dimensions.p12,
-                                            color: Color.fromARGB(
-                                                255, 141, 0, 122)),
-                                      ),
-                                      Text(
-                                        "10:00 PM",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w800,
-                                            fontSize: Dimensions.p12,
-                                            color: Color.fromARGB(
-                                                255, 141, 0, 122)),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                FrostedContainer(
-                                  container: myCard(),
-                                  color1: Color.fromARGB(255, 67, 3, 87),
-                                  color2: Color.fromARGB(200, 86, 1, 112),
-                                ),
-                              ]),
-                        ),
-                        SizedBox(
-                          height: Dimensions.p15,
-                        ),
-                        FrostedContainer(
-                          container: myCard(),
-                          color1: Color.fromARGB(153, 34, 2, 2),
-                          color2: Color.fromARGB(26, 0, 0, 0),
-                        ),
-                        SizedBox(
-                          height: Dimensions.p15,
-                        ),
-                        FrostedContainer(
-                          container: myCard(),
-                          color1: Color.fromARGB(255, 177, 196, 248),
-                          color2: Color.fromARGB(227, 208, 154, 221),
-                        ),
-                      ],
-                    ),
+                            color: Color.fromARGB(255, 255, 243, 228),
+                            borderRadius: BorderRadius.circular(Dimensions.p40),
+                          ),
+                          child: Text(
+                            "11",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w800,
+                              color: Color.fromARGB(255, 15, 15, 15),
+                            ),
+                          )),
+                      Container(
+                          alignment: Alignment.center,
+                          height: Dimensions.p120,
+                          width: Dimensions.p70,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 64, 2, 77),
+                            borderRadius: BorderRadius.circular(Dimensions.p40),
+                          ),
+                          child: Text(
+                            "12",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w800,
+                              color: Color.fromARGB(255, 255, 255, 255),
+                            ),
+                          )),
+                    ],
                   ),
-
-                  //bottombar
-                ]),
-              ),
-            ],
+                )),
           ),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          unselectedItemColor: Colors.white,
-          backgroundColor: Color.fromARGB(255, 36, 35, 35),
-          items: [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
-                backgroundColor: Color.fromARGB(255, 207, 255, 209)),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.contact_mail),
-                label: 'About',
-                backgroundColor: Color.fromARGB(255, 14, 15, 14)),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.store),
-                label: 'Store',
-                backgroundColor: Color.fromARGB(255, 186, 214, 61)),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.account_box),
-                label: 'Profile',
-                backgroundColor: Color.fromARGB(255, 186, 214, 61)),
-          ],
-          type: BottomNavigationBarType.fixed,
-          elevation: Dimensions.p5,
-          selectedItemColor: Color.fromARGB(255, 255, 181, 218),
-        ),
+          Container(
+            margin: EdgeInsets.only(top: Dimensions.p40),
+            child: Column(children: [
+              //body
+
+              Container(
+                margin: EdgeInsets.all(Dimensions.p20),
+                alignment: Alignment.centerLeft,
+                child: Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        "Adnan Ullah",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w800,
+                          fontSize: Dimensions.p15,
+                          color: Color.fromARGB(255, 29, 3, 37),
+                        ),
+                      ),
+                      SizedBox(
+                        height: Dimensions.p10,
+                      ),
+                      Text(
+                        "Cross-app developer",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: Dimensions.p10,
+                          color: Color.fromARGB(255, 42, 41, 43),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              Container(
+                padding: EdgeInsets.all(Dimensions.p20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 255, 244, 211),
+                          borderRadius: BorderRadius.circular(Dimensions.p40)),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: Dimensions.p75,
+                              padding: EdgeInsets.only(left: Dimensions.p12),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "9:00 AM",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w800,
+                                        fontSize: Dimensions.p12,
+                                        color:
+                                            Color.fromARGB(255, 141, 0, 122)),
+                                  ),
+                                  Text(
+                                    "10:00 PM",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w800,
+                                        fontSize: Dimensions.p12,
+                                        color:
+                                            Color.fromARGB(255, 141, 0, 122)),
+                                  )
+                                ],
+                              ),
+                            ),
+                            FrostedContainer(
+                              container: myCard(),
+                              color1: Color.fromARGB(255, 67, 3, 87),
+                              color2: Color.fromARGB(200, 86, 1, 112),
+                            ),
+                          ]),
+                    ),
+                    SizedBox(
+                      height: Dimensions.p15,
+                    ),
+                    FrostedContainer(
+                      container: myCard(),
+                      color1: Color.fromARGB(153, 34, 2, 2),
+                      color2: Color.fromARGB(26, 0, 0, 0),
+                    ),
+                    SizedBox(
+                      height: Dimensions.p15,
+                    ),
+                    FrostedContainer(
+                      container: myCard(),
+                      color1: Color.fromARGB(255, 177, 196, 248),
+                      color2: Color.fromARGB(227, 208, 154, 221),
+                    ),
+                  ],
+                ),
+              ),
+
+              //bottombar
+            ]),
+          ),
+        ],
       ),
     );
   }
